@@ -19,12 +19,14 @@ Route::get('/', function () {
 });
 
 Route::get('/create-thumbnail', function () {
-    (new VideoThumbnail)->createThumbnail(
+    $test = (new VideoThumbnail)->createThumbnail(
         env("URL_VIDEO", null),
         public_path('files/thumbs/'),
         "test.jpg",
-        8,
+        8
     );
+
+    dump($test);
 
     return "<img alt='thumbnail foto' src='" . asset('files/thumbs/test.jpg') . "' />";
 });
