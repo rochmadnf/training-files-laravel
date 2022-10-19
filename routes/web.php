@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Pawlox\VideoThumbnail\VideoThumbnail;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/create-thumbnail', function () {
+    (new VideoThumbnail)->createThumbnail(
+        env("URL_VIDEO", null),
+        public_path('files/thumbs/'),
+        "test.jpg",
+        8,
+    );
+
+    return "<img alt='thumbnail foto' src='" . asset('files/thumbs/test.jpg') . "' />";
 });

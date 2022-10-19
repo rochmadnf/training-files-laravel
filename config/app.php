@@ -186,6 +186,8 @@ return [
          * Package Service Providers...
          */
 
+        Pawlox\VideoThumbnail\VideoThumbnailServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -210,6 +212,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'VideoThumbnail' => Pawlox\VideoThumbnail\Facade\VideoThumbnail::class,
     ])->toArray(),
 
 ];
